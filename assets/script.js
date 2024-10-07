@@ -20,15 +20,13 @@ console.log(slides[2]["tagLine"]);
 var pos = 0;
 function updateSlider(direction) {
 	let img = document.querySelector(".banner-img");
-	if (direction === 1) {
-		pos = (pos === (slides.length - 1)) ? 0 : pos + 1;
-		console.log(pos);
-		img.setAttribute("src", "./assets/images/slideshow/"$(slides[pos]["image"]))
-	}
-	else {
+	
+	if (direction === -1) 
 		pos = !pos ? slides.length - 1 : pos - 1;
-		console.log(pos);
-	}
+	else 
+		pos = (pos === (slides.length - 1)) ? 0 : pos + 1;
+
+	img.setAttribute("src", `./assets/images/slideshow/${slides[pos]["image"]}`);
 }
 let leftArrow = document.querySelector(".arrow_left");
 let rightArrow = document.querySelector(".arrow_right");
