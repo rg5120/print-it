@@ -31,7 +31,7 @@ function updateSlider(direction) {
 	let text = document.querySelector("#banner p");
 	text.innerHTML = slides[pos]["tagLine"];
 
-	// Update bullet points
+	// Mise à jour bullet points
 	dots = "";
 	for (let i = 0; i < slides.length; i++) 
 		dots += (i === pos) ? `<span class="dot dot_selected"></span>` : `<span class="dot"></span>`;
