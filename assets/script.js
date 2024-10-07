@@ -31,3 +31,10 @@ rightArrow.addEventListener("click", (event) => {
 
 });
 
+let dots = `<span class="dot dot_selected"></span>`;
+for (let i = 0; i < slides.length - 1; i++) {
+	dots += `<span class="dot"></span>`;
+}
+let banner = document.querySelector(".dots");
+
+banner.innerHTML = dots;
