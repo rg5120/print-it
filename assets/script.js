@@ -17,14 +17,12 @@ const slides = [
 	}
 ]
 
-var pos = 0;
-
 function updateSlider(direction) {
 	let img = document.querySelector(".banner-img");
 	
 	if (direction === -1) 
 		pos = !pos ? slides.length - 1 : pos - 1;
-	else 
+	else if (direction === 1)
 		pos = (pos === (slides.length - 1)) ? 0 : pos + 1;
 
 	img.setAttribute("src", `./assets/images/slideshow/${slides[pos]["image"]}`);
@@ -41,6 +39,8 @@ function updateSlider(direction) {
 	banner.innerHTML = dots;
 }
 
+var pos = 0;
+updateSlider(0);
 
 let leftArrow = document.querySelector(".arrow_left");
 let rightArrow = document.querySelector(".arrow_right");
@@ -55,9 +55,3 @@ rightArrow.addEventListener("click", (event) => {
 		updateSlider(1);
 });
 
-let dots = `<span class="dot dot_selected"></span>`;
-for (let i = 0; i < slides.length - 1; i++) 
-	dots += `<span class="dot"></span>`;
-
-let banner = document.querySelector(".dots");
-banner.innerHTML = dots;
