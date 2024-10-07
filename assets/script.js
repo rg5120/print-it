@@ -27,22 +27,21 @@ function updateSlider(direction) {
 		pos = (pos === (slides.length - 1)) ? 0 : pos + 1;
 
 	img.setAttribute("src", `./assets/images/slideshow/${slides[pos]["image"]}`);
+	let text = document.querySelector("#banner p");
+	
+	text.innerHTML = slides[pos]["tagLine"];
 }
 let leftArrow = document.querySelector(".arrow_left");
 let rightArrow = document.querySelector(".arrow_right");
 
 leftArrow.addEventListener("click", (event) => {
-	if (event.button === 0) {
-		console.log("vous avez cliqué gauche");
+	if (event.button === 0) 
 		updateSlider(-1);
-	}
 });
 
 rightArrow.addEventListener("click", (event) => {
-	if (event.button === 0) {
-		console.log("vous avez cliqué droit");
+	if (event.button === 0) 
 		updateSlider(1);
-	}
 });
 
 let dots = `<span class="dot dot_selected"></span>`;
