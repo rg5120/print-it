@@ -16,8 +16,9 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-console.log(slides[2]["tagLine"]);
+
 var pos = 0;
+
 function updateSlider(direction) {
 	let img = document.querySelector(".banner-img");
 	
@@ -28,9 +29,19 @@ function updateSlider(direction) {
 
 	img.setAttribute("src", `./assets/images/slideshow/${slides[pos]["image"]}`);
 	let text = document.querySelector("#banner p");
-	
 	text.innerHTML = slides[pos]["tagLine"];
+
+	// Update bullet points
+	dots = "";
+	for (let i = 0; i < slides.length; i++) 
+		dots += (i === pos) ? `<span class="dot dot_selected"></span>` : `<span class="dot"></span>`;
+
+	let banner = document.querySelector(".dots");
+	
+	banner.innerHTML = dots;
 }
+
+
 let leftArrow = document.querySelector(".arrow_left");
 let rightArrow = document.querySelector(".arrow_right");
 
@@ -45,9 +56,8 @@ rightArrow.addEventListener("click", (event) => {
 });
 
 let dots = `<span class="dot dot_selected"></span>`;
-for (let i = 0; i < slides.length - 1; i++) {
+for (let i = 0; i < slides.length - 1; i++) 
 	dots += `<span class="dot"></span>`;
-}
-let banner = document.querySelector(".dots");
 
+let banner = document.querySelector(".dots");
 banner.innerHTML = dots;
