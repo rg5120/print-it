@@ -20,26 +20,21 @@ const slides = [
 function updateSlider(direction) {
 	let img = document.querySelector(".banner-img");
 	
-	if (direction === -1) 
-		pos = !pos ? slides.length - 1 : pos - 1;
-	else if (direction === 1)
-		pos = (pos === (slides.length - 1)) ? 0 : pos + 1;
+	pos = (pos + direction + slides.length) % slides.length;
 
 	img.setAttribute("src", `./assets/images/slideshow/${slides[pos]["image"]}`);
 	let text = document.querySelector("#banner p");
 	text.innerHTML = slides[pos]["tagLine"];
 
-	// Mise à jour bullet points
 	dots = "";
 	for (let i = 0; i < slides.length; i++) 
 		dots += (i === pos) ? `<span class="dot dot_selected"></span>` : `<span class="dot"></span>`;
 
 	let banner = document.querySelector(".dots");
-	
 	banner.innerHTML = dots;
 }
 
-var pos = 0;
+let pos = 0;
 updateSlider(0);
 
 let leftArrow = document.querySelector(".arrow_left");
