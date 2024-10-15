@@ -1,4 +1,4 @@
-# Projet 8 OpenClassrooms
+# Projet 8 Développeur Wordpress OpenClassrooms
 ### Premiers pas sur le langage JavaScript
 
 ### Scénario
